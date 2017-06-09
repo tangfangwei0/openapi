@@ -21,7 +21,7 @@ public class SignUtils {
     public static final String SIGN_METHOD_HMAC_SHA1 = "HmacSHA1";
     public static final String CHARSET_UTF8 = "UTF-8";
 
-    public static String signToGetMD5(Map<String, String> params, String secret) throws IOException {
+    public static String signToGetMD5(Map<String, Object> params, String secret) throws IOException {
         // 第一步：检查参数是否已经排序
         String[] keys = params.keySet().toArray(new String[0]);
         Arrays.sort(keys);
@@ -30,7 +30,7 @@ public class SignUtils {
         StringBuilder query = new StringBuilder();
         query.append(secret);
         for (String key : keys) {
-            String value = params.get(key);
+            String value = params.get(key).toString();
             if (StringUtils.areNotEmpty(key, value)) {
                 query.append(key).append(value);
             }

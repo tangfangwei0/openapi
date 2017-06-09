@@ -15,12 +15,12 @@ public class SignUtilsTest {
 
     //test 10.8.7.98
     //didibus
-//    private String appId= "fc4b5c07119984326925905a7b5009d1";
-//    private String appKey="tangfangwei";
-//    private String appSecret="0ba72694ca3c0a98e3338328a2f9c399";
+    private String appId= "fc4b5c07119984326925905a7b5009d1";
+    private String appKey="tangfangwei";
+    private String appSecret="0ba72694ca3c0a98e3338328a2f9c399";
 //    private String apiurl = "http://10.8.7.98:8000/vehicle.bus.aaa.hello";
-////    private String apiurl = "http://10.8.7.97:8000/vehicle.bus.aaa.hello";
-////    private String apiurl = "http://10.8.7.98:8000/hello";
+//    private String apiurl = "http://10.8.7.97:8000/vehicle.bus.aaa.hello";
+    private String apiurl = "http://10.8.7.98:8000/hello";
 //
 //    private String version = "1.0";
 //    private String code = "8110534CCE5912264E75C6730E3D94F6";
@@ -29,11 +29,11 @@ public class SignUtilsTest {
 
 
     //ofo
-    private String appId= "e3a6073c4adb1ae087693973d2980725";
-    private String appKey="tangfangwei_ofo";
-    private String appSecret="a0abb00cdad149f5a0937429af175e1a";
-    private String apiurl = "http://10.8.7.98:8000/vehicle.bus.aaa.hello";
-//    private String apiurl = "http://10.8.7.98:8000/hello";
+//    private String appId= "e3a6073c4adb1ae087693973d2980725";
+//    private String appKey="tangfangwei_ofo";
+//    private String appSecret="a0abb00cdad149f5a0937429af175e1a";
+//    private String apiurl = "http://10.8.7.98:8000/vehicle.bus.aaa.hello";
+////    private String apiurl = "http://10.8.7.98:8000/hello";
 
     private String version = "1.0";
     private String code = "8110534CCE5912264E75C6730E3D94F6";
@@ -55,10 +55,12 @@ public class SignUtilsTest {
 //    private String content_type = "Content-Type: application/json;charset=UTF-8";
 
     public String genGetMD5() {
-        Map<String, String> params = new HashMap<String, String>();
+        Map<String, Object> params = new HashMap<String, Object>();
         params.put("username", "Jack");
-        params.put("age", "30");
-        params.put("weight", "60");
+//        params.put("age", "30");
+//        params.put("weight", "60");
+        params.put("age", 30);
+        params.put("weight", 60);
 
         String content_MD5 = null;
         try {
@@ -72,10 +74,13 @@ public class SignUtilsTest {
 
     @Test
     public void testGenGetMD5() {
-        Map<String, String> params = new HashMap<String, String>();
+        Map<String, Object> params = new HashMap<String, Object>();
         params.put("username", "Jack");
-        params.put("age", "30");
-        params.put("weight", "60");
+//        params.put("age", "30");
+//        params.put("weight", "60");
+        params.put("age", 30);
+        params.put("weight", 60);
+
 
         String content_MD5 = null;
         try {
@@ -203,8 +208,8 @@ public class SignUtilsTest {
         StringBuilder curl = new StringBuilder();
         Map<String, String> headers = genHeaderMap();
 
-        int c = 300;
-        int n = 100000;
+        int c = 500;
+        int n = 50000;
 
         curl.append("ab -c " + c + " -n " + n + " ").append(" \\").append("\n");
         for(String headerName : headers.keySet()){

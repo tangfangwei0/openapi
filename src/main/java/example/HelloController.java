@@ -20,25 +20,48 @@ public class HelloController {
         return "hello";
     }
 
+//    @RequestMapping(method = RequestMethod.GET, path = "/vehicle.bus.aaa.hello")
+//    @ResponseBody
+//    public ResponseVO index(String username, HttpServletRequest request, HttpServletResponse response){
+//        ResponseVO result = new ResponseVO();
+//        result.setReturn_code("000000");
+//        result.setReturn_desc("success");
+//        result.setData(new User().setUsername(username));
+//
+//        return  result;
+//    }
+
     @RequestMapping(method = RequestMethod.GET, path = "/vehicle.bus.aaa.hello")
     @ResponseBody
-    public ResponseVO index(String username, HttpServletRequest request, HttpServletResponse response){
+    public ResponseVO index(User user, HttpServletRequest request, HttpServletResponse response){
         ResponseVO result = new ResponseVO();
         result.setReturn_code("000000");
         result.setReturn_desc("success");
-        result.setData(new User().setUsername(username));
+        result.setData(user);
 
         return  result;
     }
 
+//    @RequestMapping(method = RequestMethod.POST, path = "/vehicle.bus.aaa.hello")
+//    @ResponseBody
+//    public ResponseVO index1(HttpServletRequest request, HttpServletResponse response, @RequestBody Map<String, String> body){
+//
+//        ResponseVO result = new ResponseVO();
+//        result.setReturn_code("000000");
+//        result.setReturn_desc("success");
+//        result.setData(new User().setUsername(body.get("username")));
+//
+//        return  result;
+//    }
+
     @RequestMapping(method = RequestMethod.POST, path = "/vehicle.bus.aaa.hello")
     @ResponseBody
-    public ResponseVO index1(HttpServletRequest request, HttpServletResponse response, @RequestBody Map<String, String> body){
+    public ResponseVO index1(HttpServletRequest request, HttpServletResponse response, @RequestBody User user){
 
         ResponseVO result = new ResponseVO();
         result.setReturn_code("000000");
         result.setReturn_desc("success");
-        result.setData(new User().setUsername(body.get("username")));
+        result.setData(user);
 
         return  result;
     }
